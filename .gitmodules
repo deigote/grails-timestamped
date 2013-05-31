@@ -1,0 +1,3 @@
+[submodule "TimestampedDemo"]
+	path = TimestampedDemo
+	url = git@github.com:deigote/TimestampedDemo.git
