@@ -8,3 +8,5 @@ along with other properties in a domain class. This has two problems:
 By using this plugin, you will be provided with an AST transformation that will inject the properties
 so this two problems are mitigated. Also, Timestamped supports the [joda-time plugin|http://grails.org/plugin/joda-time], 
 so it will react to the plugin being installed or not by creating the timestamped properties in the proper class
+
+You can check the classes provided by the plugin in the [Groovy API section|http://deigote.github.io/grails-timestamped/gapi/].
