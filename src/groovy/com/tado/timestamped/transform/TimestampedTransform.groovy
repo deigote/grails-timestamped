@@ -1,23 +1,21 @@
 package com.tado.timestamped.transform
 
-import org.codehaus.groovy.ast.*
-import org.codehaus.groovy.ast.expr.*
-import org.codehaus.groovy.syntax.SyntaxException
-import org.codehaus.groovy.control.messages.SyntaxErrorMessage
-import org.codehaus.groovy.control.CompilePhase
-import org.codehaus.groovy.transform.GroovyASTTransformation
-import org.codehaus.groovy.transform.ASTTransformation
-import org.codehaus.groovy.control.SourceUnit
-import org.codehaus.groovy.ast.builder.AstBuilder
-
-import java.lang.annotation.Annotation
 import java.lang.reflect.Modifier
 
+import org.codehaus.groovy.ast.*
+import org.codehaus.groovy.ast.expr.*
+import org.codehaus.groovy.control.CompilePhase
+import org.codehaus.groovy.control.SourceUnit
+import org.codehaus.groovy.control.messages.SyntaxErrorMessage
+import org.codehaus.groovy.syntax.SyntaxException
+import org.codehaus.groovy.transform.ASTTransformation
+import org.codehaus.groovy.transform.GroovyASTTransformation
+
 @GroovyASTTransformation(phase = CompilePhase.CANONICALIZATION)
-public class TimestampedTransform implements ASTTransformation
+class TimestampedTransform implements ASTTransformation
 {
    private final static String configurationErrorMessage =
-      "Transformation ${TimestampedTransform.class.name} can only go along with ${Timestamped.class.name} anannotation, but found "
+      "Transformation ${TimestampedTransform.name} can only go along with ${Timestamped.name} anannotation, but found "
    private final static String unexpectedErrorMessage =
       "Unexpected error when applying transformation ${TimestampedTransform.class.name} to class "
 
@@ -26,7 +24,7 @@ public class TimestampedTransform implements ASTTransformation
       ClassNode classNode = astNodesList.find { it instanceof ClassNode }
       Class timestampClass = findTimestampClass(annotationNode)
       try {
-         if (annotationNode.classNode?.name == Timestamped.class.name) {
+         if (annotationNode.classNode?.name == Timestamped.name) {
             if (!Modifier.isAbstract(classNode.getModifiers())) { 
                findPropertiesToAdd(annotationNode).each { 
                   timestampProperty -> 
@@ -68,8 +66,8 @@ public class TimestampedTransform implements ASTTransformation
       try {
          Class.forName(annotation?.members?.get('clazz')?.value ?: 'org.joda.time.Instant') 
       }
-      catch (java.lang.ClassNotFoundException e) {
-         java.util.Date
+      catch (ClassNotFoundException e) {
+         Date
       }
    }
 }

@@ -3,4 +3,6 @@
 .settings
 plugin.xml
 target
-web-app/WEB-INF/tld
+web-app/WEB-INF
+*.log
+grails-timestamped*.zip
