@@ -1,0 +1,10 @@
+The Timestamped plugin aims to solve a small yet recurrent DRY problem when using Grails: 
+the generation of the auto-timestamping properties, which right now has to be explicitly declared 
+along with other properties in a domain class. This has two problems:
+
+* These properties aren't part of the domain class logic, so don't provide value to anyone examining the class.
+* If you wan't to switch from the standard class (java.util.Date) to joda-time, you would have to edit all the domain classes to change the property type.
+
+By using this plugin, you will be provided with an AST transformation that will inject the properties
+so this two problems are mitigated. Also, Timestamped supports the [joda-time plugin|http://grails.org/plugin/joda-time], 
+so it will react to the plugin being installed or not by creating the timestamped properties in the proper class

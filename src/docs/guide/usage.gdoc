@@ -1,0 +1,74 @@
+h2. Basic usage
+
+Using the plugin is fairly simple. You just need to annotate the domain classes as Timestamped and the _dateCreated_ and _lastUpdated_ properties will be injected at compile time: 
+
+{code}
+package my.awesome.grails.app
+
+import com.tado.timestamped.transform.Timestamped
+
+@Timestamped
+class Car {
+   Brand brand
+   String modelName
+}
+{code}
+
+h2. Specifiying the properties to inject
+
+By default, all the autotimestamping properties will be injected (at the moment, Grails provides support for _dateCreated_ and _lastUpdated_), but you can specify which one you want to avoid: 
+
+* If you don't want the _lastUpdated_ property to be injected, you can specify to ignore the update event:
+
+{code}
+package my.awesome.grails.app
+
+import com.tado.timestamped.transform.Timestamped
+
+@Timestamped(update=false) // We won't update this, so we don't need the last updated date
+class Brand {
+   String name
+   Logo logo
+}
+{code}
+
+* Accordingly If you don't want the _dateCreated_ property to be injected, you can specify to ignore the update event:
+
+{code}
+package my.awesome.grails.app
+
+import com.tado.timestamped.transform.Timestamped
+
+@Timestamped(create=false) // We don't care about the creation date
+class Car {
+   Brand brand
+   String modelName
+}
+{code}
+
+h2. Specifiying the class of the properties to inject
+
+The Timestamped plugin will try to use the *[joda-time|http://grails.org/plugin/joda-time]* _org.joda.time.Instant_ 
+class for the timestamped properties, and will fallback to the old and not so good _java.util.Date_ if the 
+previous one is not found, but you can specify your own class:
+
+{code}
+package my.awesome.grails.app
+
+import com.tado.timestamped.transform.Timestamped
+
+@Timestamped(clazz='java.lang.Long')
+class Brand {
+   String name
+   Logo logo
+}
+{code}
+
+Of course, this only make sense if you provide the mechanisms to manage the autostamping persistence 
+of the specified class, as the [joda-time plugin|http://grails.org/plugin/joda-time] does. The 
+Timestamped plugin will search for the specified class using the default classloader, and if 
+not found, it will try to use one of the supported ones. The priority is then:
+
+# Your own specified class
+# _org.joda.time.Instant_ class
+# _java.util.Date_ class
