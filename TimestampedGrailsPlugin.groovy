@@ -1,10 +1,10 @@
 class TimestampedGrailsPlugin {
-    def version = "0.1"
+    def version = "0.3"
     def grailsVersion = "2.0 > *"
     
     def loadAfter = ['joda-time']
     
-    def packaging = "binary"
+    // def packaging = "binary"
 
     def title = "Timestamped Plugin"
     def author = "Diego Toharia"

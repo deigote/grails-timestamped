@@ -1,0 +1,10 @@
+You can add the plugin to your project as a dependency by editing your project's _BuildConfig.groovy_
+as the following:
+  
+{code}
+plugins {
+   // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
+   ...
+   compile 'timestamped:0.3'
+}
+{code}
