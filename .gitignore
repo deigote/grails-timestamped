@@ -3,3 +3,4 @@
 .settings
 plugin.xml
 target
+web-app/WEB-INF/tld
