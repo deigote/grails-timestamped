@@ -4,8 +4,6 @@ class TimestampedGrailsPlugin {
     
     def loadAfter = ['joda-time']
     
-    // def packaging = "binary"
-
     def title = "Timestamped Plugin"
     def author = "Diego Toharia"
     def authorEmail = "diego@toharia.com"
