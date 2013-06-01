@@ -1,10 +1,38 @@
+h2. Install as a plugin
+
 You can add the plugin to your project as a dependency by editing your project's _BuildConfig.groovy_
 as the following:
   
 {code}
-plugins {
-   // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
-   ...
-   compile 'timestamped:0.3'
-}
+    plugins {
+       // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
+       ...
+       compile 'timestamped:0.3'
+    }
 {code}
+
+h2. Install as a maven dependency
+
+You can add the plugin as a precompiled maven dependency by editing your project's _BuildConfig.groovy_
+as the following:
+
+{code}
+    repositories {
+       ...
+       mavenRepo 'http://deigote.github.io/grails-timestamped/maven/releases/'
+       grailsPlugins()
+    }
+    ...
+    dependencies {
+        ...
+        compile 'com.deigote.com:timestamped:0.3'
+    }
+{code}
+
+Please note that the maven repo declaration must be above the grails plugins one.
+
+Also, keep in mind that if you want to use timestamped insied another plugin, you will need to install it as a maven dependency.
+That way, the plugin will be precompiled and the AST transform will be applied to the plugins as well. Bear in mind that
+an AST transform must be compiled before compiling the project where its being applied. Grails first compiles the plugins
+and then the project, so if you add the dependency as a plugin, the AST will be compiled at plugin compilation time, so will 
+only be available for the project but not for other plugins.

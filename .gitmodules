@@ -1,3 +1,6 @@
 [submodule "TimestampedDemo"]
 	path = TimestampedDemo
 	url = git@github.com:deigote/TimestampedDemo.git
+[submodule "maven-deployer"]
+	path = maven-deployer
+	url = git@github.com:deigote/grails-plugin-maven-deployer.git
