@@ -11,14 +11,14 @@ class TimestampedGrailsPlugin {
 
     def documentation = "http://deigote.github.io/grails-timestamped/"
 
-    def license = "GPL3"
+    def license = "BSD"
 
     // This plugin was developed by Diego Toharia in his spare time, but with the main goal of
     // using it in the company he works for, tado GmbH, which supported the plugin development
     // by providing resources and most important, a job for the plugin developer :-) 
     def organization = [ name: "tado GmbH", url: "http://tado.com/" ]
 
-    def issueManagement = [ system: "Github", url: "https://github.com/deigote/grails-timestamped/issues" ]
+    def issueManagement = [ system: "Github", url: "https://github.com/tadodotcom/grails-timestamped/issues" ]
 
-    def scm = [ url: "https://github.com/deigote/grails-timestamped/" ]
+    def scm = [ url: "https://github.com/tadodotcom/grails-timestamped/" ]
 }
