@@ -18,7 +18,7 @@ class TimestampedGrailsPlugin {
     // by providing resources and most important, a job for the plugin developer :-) 
     def organization = [ name: "tado GmbH", url: "http://tado.com/" ]
 
-    def issueManagement = [ system: "Github", url: "https://github.com/deigote/grails-timestamped/issues" ]
+    def issueManagement = [ system: "Github", url: "https://github.com/tadodotcom/grails-timestamped/issues" ]
 
-    def scm = [ url: "https://github.com/deigote/grails-timestamped/" ]
+    def scm = [ url: "https://github.com/tadodotcom/grails-timestamped/" ]
 }
