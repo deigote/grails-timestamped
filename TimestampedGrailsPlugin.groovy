@@ -11,7 +11,7 @@ class TimestampedGrailsPlugin {
 
     def documentation = "http://deigote.github.io/grails-timestamped/"
 
-    def license = "GPL3"
+    def license = "BSD"
 
     // This plugin was developed by Diego Toharia in his spare time, but with the main goal of
     // using it in the company he works for, tado GmbH, which supported the plugin development
